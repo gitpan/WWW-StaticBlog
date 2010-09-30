@@ -4,24 +4,26 @@ use MooseX::Declare;
 
 class WWW::StaticBlog
 {
-    our $VERSION = '0.001';
+    our $VERSION = '0.02';
 }
 
 "My hovercraft is full of eels.";
 __END__
+
 =head1 NAME
 
-WWW::StaticBlob - Generate a set of static pages for a blog.
+WWW::StaticBlog - Generate a set of static pages for a blog.
 
 =head1 VERSION
 
-version 0.001
+0.02
 
 =begin readme
 
 =head1 INSTALLATION
 
 To install this module, run the following commands:
+
     perl Makefile.PL
     make
     make test
@@ -32,7 +34,7 @@ To install this module, run the following commands:
 
 =head1 SYNOPSIS
 
-# TODO - Write the documentation.
+Generate a set of static pages for a blog.
 
 =head1 AUTHOR
 

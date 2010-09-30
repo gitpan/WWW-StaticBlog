@@ -2,7 +2,7 @@ use MooseX::Declare;
 
 class WWW::StaticBlog::Author
 {
-    our $VERSION = '0.001';
+    our $VERSION = '0.02';
 
     use Config::JFDI ();
 
@@ -73,23 +73,22 @@ class WWW::StaticBlog::Author
 #"Dinsdale, He was a nice boy...... He nailed my head to a coffee table.";
 #"1943, an ewok makes it behind German lines.";
 __END__
+
 =head1 NAME
 
-WWW::StaticBlog::Author - Generate a set of static pages for a blog.
-
+WWW::StaticBlog::Author - An Author of a Post.
 
 =head1 VERSION
 
-version 0.001
+0.02
 
 =head1 SYNOPSIS
 
-# TODO - Write the documentation.
+An Author of a Post.
 
 =head1 AUTHOR
 
 Jacob Helwig, C<< <jhelwig at cpan.org> >>
-
 
 =head1 BUGS
 

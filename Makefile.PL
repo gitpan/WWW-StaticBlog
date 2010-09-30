@@ -1,81 +1,61 @@
+use inc::Module::Install;
 
-use strict;
-use warnings;
+name     'WWW-StaticBlog';
+all_from 'lib/WWW/StaticBlog.pm';
 
- BEGIN { require 5.010; } 
+author     'Jacob Helwig <jhelwig@cpan.org>';
+license    'perl';
+repository 'git://github.com/jhelwig/WWW-StaticBlog.git';
+homepage   'http://github.com/jhelwig/WWW-StaticBlog',
 
-use ExtUtils::MakeMaker 6.31;
+readme_markdown_from 'lib/WWW/StaticBlog.pm';
 
+requires 'aliased';
+requires 'Class::MOP';
+requires 'Config::JFDI';
+requires 'Cwd';
+requires 'Data::Dumper';
+requires 'Date::Parse';
+requires 'DateTime';
+requires 'DateTime::TimeZone';
+requires 'Email::Simple';
+requires 'File::Copy::Recursive';
+requires 'File::Find';
+requires 'File::Path';
+requires 'File::Slurp';
+requires 'File::Spec';
+requires 'Hash::Merge';
+requires 'List::MoreUtils';
+requires 'List::PowerSet';
+requires 'Moose';
+requires 'Moose::Exporter';
+requires 'MooseX::Declare';
+requires 'MooseX::Getopt';
+requires 'MooseX::Method::Signatures';
+requires 'MooseX::SimpleConfig';
+requires 'MooseX::Types';
+requires 'parent';
+requires 'perl';
+requires 'Set::Object';
+requires 'Text::CSV';
+requires 'Text::Multi';
+requires 'Time::SoFar';
+requires 'XML::Atom::SimpleFeed';
 
+test_requires 'Data::Faker';
+test_requires 'Data::Faker::DateTime';
+test_requires 'Directory::Scratch';
+test_requires 'File::Temp';
+test_requires 'Test::CheckChanges' => '0.14';
+test_requires 'Test::Mini';
+test_requires 'Test::Mini::Unit';
+test_requires 'Test::TempDir';
+test_requires 'Text::Lorem';
+test_requires 'Text::Outdent';
 
-my %WriteMakefileArgs = (
-                       'test' => {
-                                   'TESTS' => 't/*.t t/lib/Test/WWW/StaticBlog/*.t'
-                                 },
-                       'NAME' => 'WWW::StaticBlog',
-                       'DISTNAME' => 'WWW-StaticBlog',
-                       'CONFIGURE_REQUIRES' => {
-                                                 'ExtUtils::MakeMaker' => '6.31'
-                                               },
-                       'AUTHOR' => 'Jacob Helwig <jhelwig@cpan.org>',
-                       'BUILD_REQUIRES' => {
-                                             'Directory::Scratch' => '0',
-                                             'Test::TempDir' => '0',
-                                             'Test::More' => '0',
-                                             'Data::Faker' => '0',
-                                             'Text::Lorem' => '0',
-                                             'File::Temp' => '0',
-                                             'Text::Outdent' => '0',
-                                             'Test::Mini::Unit' => '0',
-                                             'Data::Faker::DateTime' => '0'
-                                           },
-                       'ABSTRACT' => 'Generate a set of static pages for a blog.',
-                       'EXE_FILES' => [
-                                        'bin/www-staticblog',
-                                        'bin/www-staticblog'
-                                      ],
-                       'VERSION' => '0.001',
-                       'PREREQ_PM' => {
-                                        'MooseX::Types::Moose' => '0',
-                                        'DateTime' => '0',
-                                        'MooseX::Declare' => '0',
-                                        'Class::MOP' => '0',
-                                        'File::Spec' => '0',
-                                        'Text::CSV' => '0',
-                                        'aliased' => '0',
-                                        'MooseX::Method::Signatures' => '0',
-                                        'File::Find' => '0',
-                                        'XML::Atom::SimpleFeed' => '0',
-                                        'File::Path' => '0',
-                                        'Email::Simple' => '0',
-                                        'List::MoreUtils' => '0',
-                                        'Moose' => '0',
-                                        'File::Slurp' => '0',
-                                        'List::PowerSet' => '0',
-                                        'Text::Multi' => '0',
-                                        'Hash::Merge' => '0',
-                                        'Data::Dumper' => '0',
-                                        'Time::SoFar' => '0',
-                                        'Date::Parse' => '0',
-                                        'Moose::Exporter' => '0',
-                                        'DateTime::TimeZone' => '0',
-                                        'MooseX::Types' => '0',
-                                        'Set::Object' => '0',
-                                        'File::Copy::Recursive' => '0',
-                                        'Config::JFDI' => '0',
-                                        'Cwd' => '0'
-                                      },
-                       'LICENSE' => 'perl'
-                     );
+author_requires 'Test::More';
+author_requires 'Test::Spelling';
 
+auto_provides_class;
 
-delete $WriteMakefileArgs{BUILD_REQUIRES}
-  unless eval { ExtUtils::MakeMaker->VERSION(6.56) };
-
-delete $WriteMakefileArgs{CONFIGURE_REQUIRES}
-  unless eval { ExtUtils::MakeMaker->VERSION(6.52) };
-
-WriteMakefile(%WriteMakefileArgs);
-
-
-
+WriteAll;

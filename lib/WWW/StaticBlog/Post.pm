@@ -4,7 +4,7 @@ use MooseX::Declare;
 
 class WWW::StaticBlog::Post
 {
-    our $VERSION = '0.001';
+    our $VERSION = '0.02';
 
     use MooseX::Types::Moose qw(
         Str
@@ -275,17 +275,18 @@ class WWW::StaticBlog::Post
 
 "I don't think there's a punch-line scheduled, is there?";
 __END__
+
 =head1 NAME
 
-WWW::StaticBlog::Post - Generate a set of static pages for a blog.
+WWW::StaticBlog::Post - A Post itself.
 
 =head1 VERSION
 
-version 0.001
+0.02
 
 =head1 SYNOPSIS
 
-# TODO - Write the documentation.
+A Post itself.
 
 =head1 AUTHOR
 
